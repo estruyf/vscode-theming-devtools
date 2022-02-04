@@ -3,47 +3,47 @@
 	"displayName": "Theming DevTools",
 	"description": "An extension that helps you out with theming in VS Code. It includes a preview of all the CSS variables and their values. If you are a theme or extension developer, this is a great way to check if your theme is working as expected.",
 	"version": "0.0.1",
-  "preview": true,
-  "publisher": "eliostruyf",
-  "galleryBanner": {
-    "color": "#0e131f",
-    "theme": "dark"
-  },
-  "badges": [
-    {
-      "description": "version",
-      "url": "https://img.shields.io/github/package-json/v/estruyf/vscode-front-matter?color=green&label=vscode-front-matter&style=flat-square",
-      "href": "https://github.com/estruyf/vscode-front-matter"
-    },
-    {
-      "description": "Buy me a coffee",
-      "url": "https://img.shields.io/badge/Buy%20me%20a%20coffee-€%203-blue?logo=buy-me-a-coffee&style=flat-square",
-      "href": "https://www.buymeacoffee.com/zMeFRy9"
-    }
-  ],
+	"preview": true,
+	"publisher": "eliostruyf",
+	"galleryBanner": {
+		"color": "#0e131f",
+		"theme": "dark"
+	},
+	"badges": [
+		{
+			"description": "version",
+			"url": "https://img.shields.io/github/package-json/v/estruyf/vscode-front-matter?color=green&label=vscode-front-matter&style=flat-square",
+			"href": "https://github.com/estruyf/vscode-front-matter"
+		},
+		{
+			"description": "Buy me a coffee",
+			"url": "https://img.shields.io/badge/Buy%20me%20a%20coffee-€%203-blue?logo=buy-me-a-coffee&style=flat-square",
+			"href": "https://www.buymeacoffee.com/zMeFRy9"
+		}
+	],
 	"engines": {
 		"vscode": "^1.63.0"
 	},
 	"categories": [
 		"Other"
 	],
-  "keywords": [
-    "theme",
+	"keywords": [
+		"theme",
 		"theming",
 		"css",
 		"webview",
 		"devtools"
-  ],
-  "license": "MIT",
-  "author": "Elio Struyf <elio@struyfconsulting.be> (https://www.eliostruyf.com)",
+	],
+	"license": "MIT",
+	"author": "Elio Struyf <elio@struyfconsulting.be> (https://www.eliostruyf.com)",
 	"homepage": "https://github.com/estruyf/vscode-theming-devtools",
-  "bugs": {
-    "url": "https://github.com/estruyf/vscode-theming-devtools/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/estruyf/vscode-theming-devtools"
-  },
+	"bugs": {
+		"url": "https://github.com/estruyf/vscode-theming-devtools/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/estruyf/vscode-theming-devtools"
+	},
 	"activationEvents": [
 		"*",
 		"onCommand:theming-devtools.open"
@@ -60,9 +60,13 @@
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
+		"compile": "npm run clean && npm-run-all -p build:*",
+		"build:ext": "webpack --mode production --config ./webpack/extension.config.js",
+		"build:request": "webpack --mode production --config ./webpack/webview.config.js",
 		"dev": "npm-run-all -p dev:*",
 		"dev:ext": "webpack --mode development --watch --config ./webpack/extension.config.js",
-		"dev:request": "webpack serve --mode development --config ./webpack/webview.config.js"
+		"dev:request": "webpack serve --mode development --config ./webpack/webview.config.js",
+		"clean": "rimraf dist"
 	},
 	"devDependencies": {
 		"@types/glob": "^7.2.0",
@@ -84,6 +88,7 @@
 		"postcss-loader": "^6.2.1",
 		"react": "^17.0.2",
 		"react-dom": "^17.0.2",
+		"rimraf": "^3.0.2",
 		"style-loader": "^3.3.1",
 		"tailwindcss": "^3.0.18",
 		"ts-loader": "^9.2.5",

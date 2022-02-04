@@ -31,7 +31,7 @@ export function activate(context: ExtensionContext) {
 
 function getWebviewContent(webview: Webview, extensionUri: Uri, isDevelopment: boolean) {
 
-	let jsFile: any = webview.asWebviewUri(Uri.joinPath(extensionUri, ...["webview-out", "assets", "index.js"]));
+	let jsFile: any = webview.asWebviewUri(Uri.joinPath(extensionUri, ...["dist", "webview.js"]));
 
   if (isDevelopment) {
     jsFile = `http://localhost:9000/webview.js`

@@ -45,10 +45,9 @@ const extensionConfig = {
   infrastructureLogging: {
     level: "log", // enables logging required for problem matchers
   },
-  plugins: [
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
-    }),
-  ]
 };
-module.exports = [ extensionConfig ];
+
+module.exports = (env, argv) => {
+  extensionConfig.mode = argv.mode;
+  return extensionConfig;
+};
