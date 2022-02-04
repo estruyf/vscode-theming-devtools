@@ -2,14 +2,14 @@
 	"name": "vscode-theming-devtools",
 	"displayName": "Theming DevTools",
 	"description": "An extension that helps you out with theming in VS Code. It includes a preview of all the CSS variables and their values. If you are a theme or extension developer, this is a great way to check if your theme is working as expected.",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"preview": true,
 	"publisher": "eliostruyf",
 	"galleryBanner": {
 		"color": "#0e131f",
 		"theme": "dark"
 	},
-  "icon": "assets/icon.png",
+	"icon": "assets/icon.png",
 	"badges": [
 		{
 			"description": "version",
