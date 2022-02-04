@@ -16,13 +16,13 @@
 
 An extension that helps you out with theming in VS Code. It includes a preview of all the CSS variables and their values. If you are a theme or extension developer, this is a great way to check if your theme is working as expected.
 
-**Dark theme example**
+## ⬛️ Dark theme example
 
 <p align="center">
   <img src="./assets/dark-theme.png" alt="Dark theme" style="display: inline-block" />
 </p>
 
-**Light theme example**
+## ⬜️ Light theme example
 
 <p align="center">
   <img src="./assets/light-theme.png" alt="light theme" style="display: inline-block" />
