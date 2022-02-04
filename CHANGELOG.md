@@ -4,6 +4,12 @@ All notable changes to the "theming-devtools" extension will be documented in th
 
 ## [0.0.2] - 2022-02-04
 
+- Better color cards
+- Filtering of theme properties
+- Icons added
+
+## [0.0.2] - 2022-02-04
+
 - Fix border colors
 - Allow theme comparison with any other theme you got installed
 

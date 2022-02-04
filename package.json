@@ -9,6 +9,7 @@
 		"color": "#0e131f",
 		"theme": "dark"
 	},
+  "icon": "assets/icon.png",
 	"badges": [
 		{
 			"description": "version",

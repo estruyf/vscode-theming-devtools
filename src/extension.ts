@@ -1,6 +1,6 @@
 import { readFileSync } from "fs";
 import { join } from "path";
-import { commands, ExtensionContext, ExtensionMode, Uri, ViewColumn, Webview, window, extensions } from "vscode";
+import { commands, ExtensionContext, ExtensionMode, Uri, ViewColumn, Webview, window, extensions, workspace } from "vscode";
 import { Theme } from "./models/Theme";
 import { parse } from "jsonc-parser";
 
@@ -20,6 +20,8 @@ export function activate(context: ExtensionContext) {
           retainContextWhenHidden: true
         }
       );
+
+      panel.iconPath = Uri.file(join(context.extensionPath, 'assets', 'icon.png'));
 
 			panel.webview.html = getWebviewContent(panel.webview, context.extensionUri, context.extensionMode === ExtensionMode.Development);
 
