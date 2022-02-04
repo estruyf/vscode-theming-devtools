@@ -6,7 +6,7 @@ import useVSCodeStyles from "./hooks/useVSCodeStyles";
 import { StyleProvider } from "./providers/styleProvider";
 
 function App() {
-  const { isDark, styles } = useVSCodeStyles();
+  const { isDark, themeName, styles } = useVSCodeStyles();
   const [ selectedGroup, setSelectedGroup ] = useState<string | null>(null);
 
   const groups = useMemo(() => [...new Set((styles || []).map(p => p.parent))], [styles]);
@@ -16,6 +16,7 @@ function App() {
       <main className={`h-full w-full flex flex-col text-black`}>
         <Header 
           isDark={!!isDark}
+          themeName={themeName}
           groups={groups}
           selectedGroup={selectedGroup}
           setSelectedGroup={setSelectedGroup} />

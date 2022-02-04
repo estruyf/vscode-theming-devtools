@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 
 export default function useVSCodeStyles() {
+  const [themeName, setThemeName] = useState<string | null>();
   const [isDark, setIsDark] = useState<boolean | null>();
   const [styles, setStyles] = useState<VSCodeStyleProperty[]>([]);
 
@@ -53,6 +54,10 @@ export default function useVSCodeStyles() {
     const darkMode = elm.classList.contains('vscode-dark');
     setIsDark(darkMode);
 
+    // Update the theme name
+    const crntThemeName = elm.getAttribute(`data-vscode-theme-name`);
+    setThemeName(crntThemeName);
+
     // Get all styles
     const htmlStyle = document.querySelector('html')?.getAttribute('style');
     if (!htmlStyle) {
@@ -81,6 +86,7 @@ export default function useVSCodeStyles() {
 
   return {
     isDark,
+    themeName,
     styles
   };
 }
