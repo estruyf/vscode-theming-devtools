@@ -19,19 +19,22 @@ An extension that helps you out with theming in VS Code. It includes a preview o
 ## ⬛️ Dark theme example
 
 <p align="center">
-  <img src="./assets/dark-theme.png" alt="Dark theme" style="display: inline-block" />
+  <img src="./assets/dark-theme-v0.0.2.png" alt="Dark theme" style="display: inline-block" />
 </p>
 
 ## ⬜️ Light theme example
 
 <p align="center">
-  <img src="./assets/light-theme.png" alt="light theme" style="display: inline-block" />
+  <img src="./assets/light-theme-v0.0.2.png" alt="light theme" style="display: inline-block" />
 </p>
 
 ### ✨ Features
 
 - Show all CSS variables and their values
 - On the fly theme changes
+- Allow theme comparison with any other theme you got installed
+
+> **Important**: This is limited to the colors defined in the theme. It means that not all colors are provided, but gives you already a good indication of what the theme colors are, and allows you to compare them with other themes.
 
 ### 🚀 Usage
 

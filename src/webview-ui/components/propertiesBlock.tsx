@@ -16,7 +16,7 @@ export const PropertiesBlock: React.FunctionComponent<IPropertiesBlockProps> = (
   return (
     <div className="mb-4">
       <h3 className={`text-lg mb-2`}>{title}</h3>
-      <div className="grid grid-cols-1 gap-4 divide-y divide-gray-200">
+      <div className="grid grid-cols-1 divide-y divide-gray-200">
         {properties.map((property) => (
           <PropertyItem key={property.property} property={property}/>
         ))}

@@ -1,24 +1,32 @@
 import * as React from 'react'
 import { VSCodeStyleProperty } from '../hooks/useVSCodeStyles';
 
-const StyleContext = React.createContext<VSCodeStyleProperty[] | undefined>(undefined);
+interface IStyleContext {
+  styles: VSCodeStyleProperty[] | undefined;
+  themes: string[] | undefined;
+}
+
+const StyleContext = React.createContext<IStyleContext | undefined>(undefined);
 
 interface IStyleProviderProps {
   styles?: VSCodeStyleProperty[];
+  themes?: string[];
 }
 
-const StyleProvider: React.FunctionComponent<IStyleProviderProps> = ({ styles, children }: React.PropsWithChildren<IStyleProviderProps>) => {
-  return <StyleContext.Provider value={styles}>{children}</StyleContext.Provider>
+const StyleProvider: React.FunctionComponent<IStyleProviderProps> = ({ styles, themes, children }: React.PropsWithChildren<IStyleProviderProps>) => {
+  return <StyleContext.Provider value={{ styles, themes }}>{children}</StyleContext.Provider>
 };
 
-const useStyles = (): VSCodeStyleProperty[] => {
-  const styles = React.useContext(StyleContext);
+const useStyles = (): IStyleContext => {
+  const styleCtx = React.useContext(StyleContext);
 
-  if (styles === undefined) {
+  if (styleCtx === undefined) {
     throw new Error('useStyles must be used within the StyleProvider');
   }
 
-  return styles;
+  return {
+    ...styleCtx
+  };
 };
 
 StyleContext.displayName = 'StyleContext';

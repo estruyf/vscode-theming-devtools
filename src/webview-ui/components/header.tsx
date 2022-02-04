@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useMemo } from 'react';
 import { useStyles } from '../providers/styleProvider';
 import { Tabs } from './tabs';
+import { Themes } from './themes';
 
 export interface IHeaderProps {
   isDark: boolean;
@@ -9,10 +10,16 @@ export interface IHeaderProps {
   groups: string[];
   selectedGroup: string | null;
   setSelectedGroup: (group: string) => void;
+  selectedTheme: string | null;
+  setSelectedTheme: (theme: string) => void;
 }
 
-export const Header: React.FunctionComponent<IHeaderProps> = ({ isDark, themeName, groups, selectedGroup, setSelectedGroup }: React.PropsWithChildren<IHeaderProps>) => {
-  const styles = useStyles();
+export const Header: React.FunctionComponent<IHeaderProps> = ({ isDark, themeName, groups, selectedGroup, setSelectedGroup, selectedTheme, setSelectedTheme }: React.PropsWithChildren<IHeaderProps>) => {
+  const { styles, themes } = useStyles();
+
+  if (!styles) { 
+    return null;
+  }
 
   const fgColor = useMemo(() => styles.find(({ property }) => property === "foreground")?.value, [styles]);
   const bgColor = useMemo(() => styles.find(({ property }) => property === "editorBackground")?.value, [styles]);
@@ -33,6 +40,11 @@ export const Header: React.FunctionComponent<IHeaderProps> = ({ isDark, themeNam
             groups={groups} 
             selectedGroup={selectedGroup}
             setSelectedGroup={setSelectedGroup} />
+
+          <Themes
+            themes={themes}
+            selectedTheme={selectedTheme}
+            setSelectedTheme={setSelectedTheme} />
         </div>
       </header>
     </div>

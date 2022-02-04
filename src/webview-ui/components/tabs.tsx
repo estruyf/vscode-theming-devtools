@@ -9,19 +9,24 @@ export interface ITabsProps {
 }
 
 export const Tabs: React.FunctionComponent<ITabsProps> = ({ groups, selectedGroup, setSelectedGroup }: React.PropsWithChildren<ITabsProps>) => {
-  const styles = useStyles();
+  const { styles } = useStyles();
+
+  if (!styles) { 
+    return null;
+  }
   
   const fgColor = useMemo(() => styles.find(({ property }) => property === "foreground")?.value, [styles]);
   const linkColor = useMemo(() => styles.find(({ property }) => property === "textLinkForeground")?.value, [styles]);
 
   useEffect(() => {
     if (groups.length > 0 && selectedGroup === null) {
-      setSelectedGroup(groups[1]);
+      setSelectedGroup("editor");
     }
   }, [groups, selectedGroup, setSelectedGroup]);
 
   return (
     <nav className="mt-4" aria-label="Tabs">
+      <h3 className="text-xl font-bold mb-4">Select the theme section</h3>
       {
         groups.map((group) => (
           <button

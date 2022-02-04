@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { useMemo } from 'react';
+import { CodeTheme } from '../../models/CodeTheme';
 import { VSCodeStyleProperty } from '../hooks/useVSCodeStyles';
+import { useCodeTheme } from '../providers/codeThemeProvider';
 import { PropertiesBlock } from './propertiesBlock';
 
 export interface IPropertiesListProps {
@@ -8,15 +10,23 @@ export interface IPropertiesListProps {
 }
 
 export const PropertiesList: React.FunctionComponent<IPropertiesListProps> = ({ properties }: React.PropsWithChildren<IPropertiesListProps>) => {
+  const { name, theme } = useCodeTheme();
 
   const fonts = useMemo(() => properties.filter(({ property }) => property.toLowerCase().includes("font")), [properties]);
   const colors = useMemo(() => properties.filter(({ property }) => property.toLowerCase().includes("foreground")), [properties]);
   const backgrounds = useMemo(() => properties.filter(({ property }) => property.toLowerCase().includes("background")), [properties]);
-  const borders = useMemo(() => properties.filter(({ property }) => property.startsWith("border")), [properties]);
+  const borders = useMemo(() => properties.filter(({ property }) => property.toLowerCase().includes("border")), [properties]);
 
   return (
     <div className={`text-black`}>
-      <h2 className={`text-xl mb-4`}>Showing properties from <strong>{properties[0].parent}</strong></h2>
+      <div className={`grid grid-cols-2`}>
+        <h2 className={`text-xl mb-4`}>Showing properties from <strong>{properties[0].parent}</strong></h2>
+        {
+          (name && theme) && (
+            <h2 className={`text-xl mb-4`}>Compare with: {name}</h2>
+          )
+        }
+      </div>
 
       <PropertiesBlock properties={fonts} title="Font styles" />
 
@@ -25,12 +35,6 @@ export const PropertiesList: React.FunctionComponent<IPropertiesListProps> = ({ 
       <PropertiesBlock properties={backgrounds} title="Background colors" />
 
       <PropertiesBlock properties={borders} title="Border colors" />
-
-      {/* {
-        properties.map((property) => (
-          <PropertyItem key={property.property} property={property} />
-        ))
-      } */}
     </div>
   );
 };

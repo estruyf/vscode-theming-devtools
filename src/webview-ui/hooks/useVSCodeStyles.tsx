@@ -22,6 +22,7 @@ export default function useVSCodeStyles() {
     const value = data[1];
 
     const propertySplit = property.replace('--vscode-', '').split('-');
+    const codeNotition = propertySplit.join('.')
     const parent = getCamelCaseArray(propertySplit[0])[0];
 
     property = propertySplit.map((valuePart, idx) => {
@@ -36,7 +37,8 @@ export default function useVSCodeStyles() {
       property,
       value,
       parent,
-      cssVariable
+      cssVariable,
+      codeNotition
     };
   };
 
@@ -96,4 +98,5 @@ export interface VSCodeStyleProperty {
   value: string;
   parent: string;
   cssVariable: string;
+  codeNotition: string;
 }
