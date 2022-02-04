@@ -19,13 +19,13 @@ An extension that helps you out with theming in VS Code. It includes a preview o
 ## ⬛️ Dark theme example
 
 <p align="center">
-  <img src="./assets/dark-theme-v0.0.2.png" alt="Dark theme" style="display: inline-block" />
+  <img src="./assets/dark-theme-v0.0.3.png" alt="Dark theme" style="display: inline-block" />
 </p>
 
 ## ⬜️ Light theme example
 
 <p align="center">
-  <img src="./assets/light-theme-v0.0.2.png" alt="light theme" style="display: inline-block" />
+  <img src="./assets/light-theme-v0.0.3.png" alt="light theme" style="display: inline-block" />
 </p>
 
 ### ✨ Features
