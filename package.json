@@ -12,8 +12,8 @@
 	"badges": [
 		{
 			"description": "version",
-			"url": "https://img.shields.io/github/package-json/v/estruyf/vscode-front-matter?color=green&label=vscode-front-matter&style=flat-square",
-			"href": "https://github.com/estruyf/vscode-front-matter"
+			"url": "https://img.shields.io/github/package-json/v/estruyf/vscode-theming-devtools?color=green&label=Theming%20DevTools&style=flat-square",
+			"href": "https://github.com/estruyf/vscode-theming-devtools"
 		},
 		{
 			"description": "Buy me a coffee",
