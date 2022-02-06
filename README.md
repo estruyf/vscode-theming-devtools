@@ -1,4 +1,4 @@
-# 💅 Theme DevTools for VSCode
+# 🎨 Theme DevTools for VSCode
 
 <p align="center">
   <a href="https://marketplace.visualstudio.com/items?itemName=eliostruyf.vscode-theming-devtools" title="Check it out on the Visual Studio Marketplace">
