@@ -67,7 +67,7 @@ function getTheme(crntTheme: string) {
   // Get the theme extension that matches the active theme
   const themeExtension = allExts.find(e => {
     const pkg = e.packageJSON;
-    return pkg.contributes.themes.find((theme: Theme) => theme.label === crntTheme);
+    return pkg.contributes.themes.find((theme: Theme) => (theme.label === crntTheme || theme.id === crntTheme));
   });
 
   if (!themeExtension) {
@@ -75,7 +75,7 @@ function getTheme(crntTheme: string) {
   }
 
   // Get the theme file
-  const themeFile: Theme = themeExtension.packageJSON.contributes.themes.find((theme: Theme) => theme.label === crntTheme);
+  const themeFile: Theme = themeExtension.packageJSON.contributes.themes.find((theme: Theme) => (theme.label === crntTheme || theme.id === crntTheme));
   const fileContents = readFileSync(join(themeExtension.extensionPath, themeFile.path), 'utf8');
 
   if (!fileContents) {
